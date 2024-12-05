@@ -1,14 +1,25 @@
 package com.spring.basic.Diary.service;
 
+import com.spring.basic.Diary.domain.Schedule;
+import com.spring.basic.Diary.repository.MemoryTodoRepository;
 import com.spring.basic.Diary.repository.TodosRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TodoService {
-
+    //속
     private final TodosRepository todosRepository;
 
-    public TodoService(TodosRepository todosRepository) {
+
+    //생
+    public TodoService(MemoryTodoRepository todosRepository) {
         this.todosRepository = todosRepository;
     }
+
+
+    //기
+    public void addSchedule (Schedule schedule) {
+
+    }
+
 }
