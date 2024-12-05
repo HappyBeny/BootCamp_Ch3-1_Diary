@@ -13,13 +13,15 @@ public class Schedule {
     private String todo;
     private String writer;
     private final long password;
-    private LocalDateTime dateTime;
+    private LocalDateTime createdTime;
+    private LocalDateTime updatedTime;
 
     public Schedule(String todo, String writer, long password) {
         this.todo = todo;
         this.writer = writer;
         this.password = password;
-        this.dateTime = LocalDateTime.now();
+        this.createdTime = LocalDateTime.now();
+        this.updatedTime = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -50,7 +52,15 @@ public class Schedule {
         return password;
     }
 
-    public String getDate() {
-        return dateTime.toString();
+    public LocalDateTime getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(LocalDateTime updatedTime) {
+        this.updatedTime = updatedTime;
+    }
+
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
     }
 }
