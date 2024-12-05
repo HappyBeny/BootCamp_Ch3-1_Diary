@@ -8,8 +8,9 @@ import java.util.Optional;
 
 public interface TodosRepository {
 
-    Schedule save(Schedule schedule);
-    Optional<Schedule> findByDate(String date);
+    Schedule saveSchedule(Schedule schedule);
+    Optional<Schedule> findById(Long id);
     Optional<Schedule> findByWriter(String writer);
+    Optional<Schedule> findByDate(String date);
     List<Schedule> showAllSchedules();
 }
