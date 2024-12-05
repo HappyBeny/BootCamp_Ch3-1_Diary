@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class MemoryTodoRepository implements TodosRepository{
@@ -25,22 +26,24 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public Optional<Schedule> findById(Long id) {
-        return Optional.ofNullable(schedules.get(id));
+    public List<Schedule> findById(Long id) {
+        return schedules.values().stream()
+                .filter(schedule -> schedule.getId().equals(id))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Schedule> findByWriter(String writer) {
+    public List<Schedule> findByWriter(String writer) {
         return schedules.values().stream()
                 .filter(schedule -> schedule.getWriter().equals(writer))
-                .findAny();
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Schedule> findByDate(LocalDateTime dateTime) {
+    public List<Schedule> findByDate(LocalDateTime dateTime) {
         return schedules.values().stream()
                 .filter(schedule -> schedule.getUpdatedTime().equals(dateTime))
-                .findAny();
+                .collect(Collectors.toList());
     }
 
     @Override
