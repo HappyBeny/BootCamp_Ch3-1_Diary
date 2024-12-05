@@ -12,11 +12,11 @@ public class Schedule {
     private Long id;
     private String todo;
     private String writer;
-    private final long password;
+    private final String password;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
 
-    public Schedule(String todo, String writer, long password) {
+    public Schedule(String todo, String writer, String password) {
         this.todo = todo;
         this.writer = writer;
         this.password = password;
@@ -48,7 +48,7 @@ public class Schedule {
         this.writer = writer;
     }
 
-    public long getPassword() {
+    public String getPassword() {
         return password;
     }
 
