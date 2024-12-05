@@ -8,17 +8,26 @@ import java.util.Date;
 @Getter
 @Setter
 public class Schedule {
+
+    private Long id;
     private String todo;
     private String writer;
     private final long password;
-    private final String createdDate;
-    private Date modifiedDate;
+    private String date;
 
-    public Schedule(String todo, String writer, long password, String createdDate) {
+    public Schedule(String todo, String writer, long password, String date) {
         this.todo = todo;
         this.writer = writer;
         this.password = password;
-        this.createdDate = createdDate;
+        this.date = date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTodo() {
@@ -41,15 +50,7 @@ public class Schedule {
         return password;
     }
 
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public String getDate() {
+        return date;
     }
 }
