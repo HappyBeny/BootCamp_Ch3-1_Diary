@@ -3,6 +3,7 @@ package com.spring.basic.Diary.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -13,13 +14,13 @@ public class Schedule {
     private String todo;
     private String writer;
     private final long password;
-    private String date;
+    private LocalDateTime dateTime;
 
-    public Schedule(String todo, String writer, long password, String date) {
+    public Schedule(String todo, String writer, long password) {
         this.todo = todo;
         this.writer = writer;
         this.password = password;
-        this.date = date;
+        this.dateTime = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -51,6 +52,6 @@ public class Schedule {
     }
 
     public String getDate() {
-        return date;
+        return dateTime.toString();
     }
 }
