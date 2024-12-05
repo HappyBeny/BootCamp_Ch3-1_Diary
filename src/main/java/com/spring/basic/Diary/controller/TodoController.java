@@ -9,10 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/todo")
 @RestController
 public class TodoController {
+
+    // 속
     private final TodoService todoService;
 
+    // 생
     @Autowired
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
+
+    // 기
+
 }
