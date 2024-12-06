@@ -18,7 +18,7 @@ public class TodoService {
 
     //생
     @Autowired
-    public TodoService(MemoryTodoRepository todosRepository) {
+    public TodoService(TodosRepository todosRepository) {
         this.todosRepository = todosRepository;
     }
 
