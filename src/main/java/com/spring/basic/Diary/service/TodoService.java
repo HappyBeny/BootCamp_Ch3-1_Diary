@@ -1,14 +1,12 @@
 package com.spring.basic.Diary.service;
 
-import com.spring.basic.Diary.domain.Schedule;
+import com.spring.basic.Diary.dto.Schedule;
 import com.spring.basic.Diary.repository.MemoryTodoRepository;
 import com.spring.basic.Diary.repository.TodosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,9 +40,7 @@ public class TodoService {
      * @param date 수정일
      * @return 입력된 값 갯수에 따라 각각의 리스트 반환.
      */
-    public List<Schedule> getSchedules(
-            @RequestParam(required = false) String writer,
-            @RequestParam(required = false) LocalDate date) {
+    public List<Schedule> getSchedules(String writer, LocalDate date) {
         if (writer == null && date == null) {
             return todosRepository.findAll();
         } else if (writer == null) {
