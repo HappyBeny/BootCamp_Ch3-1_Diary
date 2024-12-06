@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -19,7 +18,7 @@ public class MemoryTodoRepository implements TodosRepository{
 
     //기
     @Override
-    public Schedule saveSchedule(Schedule schedule) {
+    public Schedule save(Schedule schedule) {
         schedule.setId(++sequence);
         schedules.put(schedule.getId(), schedule);
         return schedule;
@@ -47,11 +46,11 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> showAllSchedules() {
+    public List<Schedule> findAll() {
         return new ArrayList<>(schedules.values());
     }
 
-    public void clearSchedules(){
+    public void clearAll(){
         schedules.clear();
     }
 }
