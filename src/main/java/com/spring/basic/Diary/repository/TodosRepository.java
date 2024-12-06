@@ -11,6 +11,7 @@ public interface TodosRepository {
     Schedule save(Schedule schedule);
     List<Schedule> findById(Long id);
     List<Schedule> findByWriter(String writer);
-    List<Schedule> findByDate(LocalDateTime dateTime);
+    List<Schedule> findByCreatedDate(LocalDateTime dateTime);
+    List<Schedule> findByUpdatedDate(LocalDateTime dateTime);
     List<Schedule> findAll();
 }
