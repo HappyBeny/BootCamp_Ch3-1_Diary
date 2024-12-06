@@ -34,8 +34,8 @@ public class TodoController {
 
     @GetMapping("/schedules")
     public List<Schedule> getSchedules(
-            @PathVariable("writer") String writer,
-            @PathVariable("updatedTime") LocalDate date) {
+            @RequestParam("writer") String writer,
+            @RequestParam("updatedTime") LocalDate date) {
         return todoService.getSchedules(writer, date);
     }
 }
