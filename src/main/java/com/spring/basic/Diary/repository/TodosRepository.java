@@ -4,12 +4,13 @@ import com.spring.basic.Diary.domain.Schedule;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface TodosRepository {
 
     Schedule save(Schedule schedule);
-    List<Schedule> findById(Long id);
+    Optional<Schedule> findById(Long id);
     List<Schedule> findByWriter(String writer);
     List<Schedule> findByCreatedDate(LocalDate date);
     List<Schedule> findByUpdatedDate(LocalDate date);
