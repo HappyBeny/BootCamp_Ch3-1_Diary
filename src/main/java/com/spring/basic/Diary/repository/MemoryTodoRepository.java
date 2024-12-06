@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -23,13 +24,6 @@ public class MemoryTodoRepository implements TodosRepository{
         schedules.put(schedule.getId(), schedule);
         return schedule;
     }
-    @Override
-    public List<Schedule> findById(Long id) {
-        return schedules.values().stream()
-                .filter(schedule -> schedule.getId().equals(id))
-                .collect(Collectors.toList());
-    }
-
     @Override
     public List<Schedule> findByWriter(String writer) {
         return schedules.values().stream()
@@ -52,6 +46,13 @@ public class MemoryTodoRepository implements TodosRepository{
     @Override
     public List<Schedule> findAll() {
         return new ArrayList<>(schedules.values());
+    }
+
+    @Override
+    public Optional<Schedule> findById(Long id) {
+        return schedules.values().stream()
+                .filter(schedule -> schedule.getId().equals(id))
+                .findAny();
     }
 
     public void clearAll(){
