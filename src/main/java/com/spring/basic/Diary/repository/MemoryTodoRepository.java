@@ -11,19 +11,18 @@ import java.util.stream.Collectors;
 
 @Repository
 public class MemoryTodoRepository implements TodosRepository{
-
     // 속
+
     private Map<Long, Schedule> schedules;
     private long sequence = 0L;
-
     //기
+
     @Override
     public Schedule save(Schedule schedule) {
         schedule.setId(++sequence);
         schedules.put(schedule.getId(), schedule);
         return schedule;
     }
-
     @Override
     public List<Schedule> findById(Long id) {
         return schedules.values().stream()
@@ -39,7 +38,12 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> findByDate(LocalDateTime dateTime) {
+    public List<Schedule> findByCreatedDate(LocalDateTime dateTime) {
+        return List.of();
+    }
+
+    @Override
+    public List<Schedule> findByUpdatedDate(LocalDateTime dateTime) {
         return schedules.values().stream()
                 .filter(schedule -> schedule.getUpdatedTime().equals(dateTime))
                 .collect(Collectors.toList());
