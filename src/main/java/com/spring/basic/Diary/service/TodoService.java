@@ -5,6 +5,12 @@ import com.spring.basic.Diary.repository.MemoryTodoRepository;
 import com.spring.basic.Diary.repository.TodosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TodoService {
@@ -20,8 +26,36 @@ public class TodoService {
 
 
     //기
-    public void addSchedule (Schedule schedule) {
+    /**
+     * 일정 생성/등록
+     * @param schedule 전달 받을 schedule 객체
+     * @return 일정 생성 후 일정 내용 반환
+     */
+    public String createSchedule(Schedule schedule) {
+        todosRepository.save(schedule);
+        return schedule.getTodo();
+    }
 
+    /**
+     * 일정 조회 기능
+     * @param writer 작성자
+     * @param date 수정일
+     * @return 입력된 값 갯수에 따라 각각의 리스트 반환.
+     */
+    public List<Schedule> getSchedules(
+            @RequestParam(required = false) String writer,
+            @RequestParam(required = false) LocalDate date) {
+        if (writer == null && date == null) {
+            return todosRepository.findAll();
+        } else if (writer == null) {
+            return todosRepository.findByUpdatedDate(date);
+        } else if (date == null) {
+            return todosRepository.findByWriter(writer);
+        } else {
+            return todosRepository.findByUpdatedDate(date).stream()
+                    .filter(schedule -> schedule.getWriter().equals(writer))
+                    .collect(Collectors.toList());
+        }
     }
 
 }
