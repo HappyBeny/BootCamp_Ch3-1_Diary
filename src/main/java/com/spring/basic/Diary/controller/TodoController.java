@@ -1,18 +1,13 @@
 package com.spring.basic.Diary.controller;
 
 
-import com.spring.basic.Diary.domain.Schedule;
+import com.spring.basic.Diary.dto.Schedule;
 import com.spring.basic.Diary.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @RequestMapping("/todo")
 @RestController
@@ -29,9 +24,7 @@ public class TodoController {
 
     // 기
     @PostMapping("/schedules/new")
-    public String create(ScheduleForm form) {
-        Schedule schedule = new Schedule(form.getTodo(), form.getWriter(), form.getPassword());
-
+    public String create(@RequestBody Schedule schedule) {
         System.out.println("schedule: " + schedule.getTodo());
 
         todoService.createSchedule(schedule);
@@ -40,7 +33,9 @@ public class TodoController {
     }
 
     @GetMapping("/schedules")
-    public List<Schedule> list(String writer, LocalDate date) {
+    public List<Schedule> getSchedules(
+            @PathVariable("writer") String writer,
+            @PathVariable("updatedTime") LocalDate date) {
         return todoService.getSchedules(writer, date);
     }
 }
