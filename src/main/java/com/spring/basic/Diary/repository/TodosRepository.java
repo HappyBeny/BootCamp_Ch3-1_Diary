@@ -1,6 +1,6 @@
 package com.spring.basic.Diary.repository;
 
-import com.spring.basic.Diary.domain.Schedule;
+import com.spring.basic.Diary.dto.Schedule;
 
 import java.time.LocalDate;
 import java.util.List;
