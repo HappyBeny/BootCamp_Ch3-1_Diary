@@ -12,9 +12,13 @@ public class Schedule {
     private Long id;
     private String todo;
     private String writer;
-    private final String password;
-    private final LocalDateTime createdTime;
+//    private final String password;
+//    private final LocalDateTime createdTime;
+    private String password; // 순수jdbc용
+    private LocalDateTime createdTime; // 순수 jdbc용
     private LocalDateTime updatedTime;
+
+    public Schedule () {}
 
     public Schedule(String todo, String writer, String password) {
         this.todo = todo;
