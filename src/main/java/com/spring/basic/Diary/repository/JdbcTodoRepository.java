@@ -6,6 +6,7 @@ import org.springframework.jdbc.datasource.DataSourceUtils;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class JdbcTodoRepository implements TodosRepository{
 
     @Override
     public Schedule save(Schedule schedule) {
-        String sql = "insert into schedule (title, description, date) values (?, ?, ?)";
+        String sql = "insert into schedule (todo, writer, password) values (?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -31,6 +32,8 @@ public class JdbcTodoRepository implements TodosRepository{
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             pstmt.setString(1, schedule.getTodo());
+            pstmt.setString(2, schedule.getWriter());
+            pstmt.setString(3, schedule.getPassword());
 
             pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
@@ -67,6 +70,9 @@ public class JdbcTodoRepository implements TodosRepository{
                 Schedule schedule = new Schedule();
                 schedule.setId(rs.getLong("id"));
                 schedule.setTodo(rs.getString("todo"));
+                schedule.setWriter(rs.getString("writer"));
+                schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
                 return Optional.of(schedule);
             } else {
                 return Optional.empty();
@@ -80,22 +86,143 @@ public class JdbcTodoRepository implements TodosRepository{
 
     @Override
     public List<Schedule> findByWriter(String writer) {
-        return List.of();
+        String sql = "select * from schedule where writer = ?";
+        List<Schedule> schedules = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, writer);
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                    Schedule schedule = new Schedule();
+                    schedule.setId(rs.getLong("id"));
+                    schedule.setTodo(rs.getString("todo"));
+                    schedule.setWriter(rs.getString("writer"));
+                    schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                    schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                    schedules.add(schedule);
+            }
+
+            return schedules;
+
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        } finally {
+            close(conn, pstmt, rs);
+        }
     }
 
     @Override
     public List<Schedule> findByCreatedDate(LocalDate date) {
-        return List.of();
+        String sql = "select * from schedule where created_time >= ? and created_time < ?";
+        List<Schedule> schedules = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setTimestamp(1, Timestamp.valueOf(date.atStartOfDay()));
+            pstmt.setTimestamp(2, Timestamp.valueOf(date.plusDays(1).atStartOfDay()));
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Schedule schedule = new Schedule();
+                schedule.setId(rs.getLong("id"));
+                schedule.setTodo(rs.getString("todo"));
+                schedule.setWriter(rs.getString("writer"));
+                schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                schedules.add(schedule);
+            }
+
+            return schedules;
+
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        } finally {
+            close(conn, pstmt, rs);
+        }
     }
 
     @Override
     public List<Schedule> findByUpdatedDate(LocalDate date) {
-        return List.of();
+        String sql = "select * from schedule where updated_time >= ? and updated_time < ?";
+        List<Schedule> schedules = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setTimestamp(1, Timestamp.valueOf(date.atStartOfDay()));
+            pstmt.setTimestamp(2, Timestamp.valueOf(date.plusDays(1).atStartOfDay()));
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Schedule schedule = new Schedule();
+                schedule.setId(rs.getLong("id"));
+                schedule.setTodo(rs.getString("todo"));
+                schedule.setWriter(rs.getString("writer"));
+                schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                schedules.add(schedule);
+            }
+
+            return schedules;
+
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        } finally {
+            close(conn, pstmt, rs);
+        }
     }
 
     @Override
     public List<Schedule> findAll() {
-        return List.of();
+        String sql = "select * from schedule";
+        List<Schedule> schedules = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConnection();
+            pstmt = conn.prepareStatement(sql);
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Schedule schedule = new Schedule();
+                schedule.setId(rs.getLong("id"));
+                schedule.setTodo(rs.getString("todo"));
+                schedule.setWriter(rs.getString("writer"));
+                schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                schedules.add(schedule);
+            }
+
+            return schedules;
+
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        } finally {
+            close(conn, pstmt, rs);
+        }
     }
 
     private Connection getConnection() {
