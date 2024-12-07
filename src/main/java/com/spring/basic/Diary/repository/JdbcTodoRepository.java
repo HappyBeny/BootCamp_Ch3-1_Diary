@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-public class JdbcScheduleRepository implements TodosRepository{
+public class JdbcTodoRepository implements TodosRepository{
     @Override
     public Schedule save(Schedule schedule) {
         return null;
