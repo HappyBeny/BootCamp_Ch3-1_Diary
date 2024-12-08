@@ -1,5 +1,6 @@
 package com.spring.basic.Diary;
 
+import com.spring.basic.Diary.repository.JdbcTemplateTodoRepository;
 import com.spring.basic.Diary.repository.JdbcTodoRepository;
 import com.spring.basic.Diary.repository.MemoryTodoRepository;
 import com.spring.basic.Diary.repository.TodosRepository;
@@ -11,6 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
+
     private final TodosRepository todosRepository;
     private final DataSource dataSource;
 
@@ -27,8 +29,7 @@ public class SpringConfig {
     @Bean
     public TodosRepository todosRepository() {
 //        return new MemoryTodoRepository();
-        return new JdbcTodoRepository(dataSource);
+//        return new JdbcTodoRepository(dataSource);
+        return new JdbcTemplateTodoRepository(dataSource);
     }
-
-    TodosRepository todo = new MemoryTodoRepository();
 }
