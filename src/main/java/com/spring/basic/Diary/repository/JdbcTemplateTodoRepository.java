@@ -71,16 +71,16 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     }
 
     @Override
+    public void deleteSchedule(Long id, String password) {
+
+    }
+
+    @Override
     public boolean verifyPassword(Long id, String password) {
         int count = jdbcTemplate.queryForObject(
                 "SELECT count(*) from schedules where id = ? AND password = ?",
                 Integer.class, id, password);
         return count > 0;
-    }
-
-    @Override
-    public void deleteSchedule(Long id, String password) {
-
     }
 
     private RowMapper<ScheduleEntity> scheduleRowMapper() {
