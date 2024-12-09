@@ -18,7 +18,7 @@ public class MemoryTodoRepository implements TodosRepository{
 
     //기
     @Override
-    public RequestCreateDto save(RequestCreateDto scheduleDto) {
+    public Long save(RequestCreateDto scheduleDto) {
         ScheduleEntity scheduleEntity = new ScheduleEntity();
         scheduleEntity.setId(++sequence);
         scheduleEntity.setTodo(scheduleDto.getTodo());
@@ -27,7 +27,7 @@ public class MemoryTodoRepository implements TodosRepository{
         scheduleEntity.setCreatedTime(LocalDateTime.now());
         scheduleEntity.setUpdatedTime(LocalDateTime.now());
         schedules.put(scheduleEntity.getId(), scheduleEntity);
-        return scheduleDto;
+        return scheduleEntity.getId();
     }
 
     @Override

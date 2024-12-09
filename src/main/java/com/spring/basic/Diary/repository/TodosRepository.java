@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface TodosRepository {
 
-    RequestCreateDto save(RequestCreateDto schedule);
+    Long save(RequestCreateDto schedule);
     Optional<ScheduleEntity> findById(Long id);
     List<ScheduleEntity> findByWriter(String writer);
     List<ScheduleEntity> findByCreatedDate(LocalDate date);

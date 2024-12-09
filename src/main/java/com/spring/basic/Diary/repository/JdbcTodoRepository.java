@@ -20,7 +20,7 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public RequestCreateDto save(RequestCreateDto schedule) {
+    public Long save(RequestCreateDto schedule) {
         String sql = "insert into schedule (todo, writer, password) values (?, ?, ?)";
 
         Connection conn = null;
@@ -39,10 +39,10 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.getGeneratedKeys();
 
             if (rs.next()) {
+                return rs.getLong(1);
             } else {
                 throw new SQLException("id 조회 실패");
             }
-            return schedule;
         } catch (Exception e){
             throw new IllegalStateException(e);
         } finally {
