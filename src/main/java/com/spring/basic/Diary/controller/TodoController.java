@@ -1,10 +1,7 @@
 package com.spring.basic.Diary.controller;
 
 
-import com.spring.basic.Diary.dto.RequestCreateDto;
-import com.spring.basic.Diary.dto.ResponseScheduleDto;
-import com.spring.basic.Diary.dto.ResponseUpdatedDto;
-import com.spring.basic.Diary.dto.UpdateScheduleDto;
+import com.spring.basic.Diary.dto.*;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 import com.spring.basic.Diary.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +63,17 @@ public class TodoController {
 
         if (updated) {
             return new ResponseUpdatedDto("Success", "수정 성공");
+        } else {
+            return new ResponseUpdatedDto("Fail", "올바른 비밀번호를 입력하세요");
+        }
+    }
+
+    @DeleteMapping("/schedules/delete")
+    public ResponseUpdatedDto delete(@RequestBody RequestDeleteDto schedule) {
+        boolean deleted = todoService.deleteSchedule(schedule.getId(), schedule.getPassword());
+
+        if (deleted) {
+            return new ResponseUpdatedDto("Success", "일정이 삭제되었습니다.");
         } else {
             return new ResponseUpdatedDto("Fail", "올바른 비밀번호를 입력하세요");
         }

@@ -89,4 +89,13 @@ public class TodoService {
         }
         return true;
     }
+
+    public boolean deleteSchedule(Long id, String password) {
+        if (!todosRepository.verifyPassword(id, password)) {
+            return false;
+        }
+
+        todosRepository.deleteSchedule(id);
+        return true;
+    }
 }
