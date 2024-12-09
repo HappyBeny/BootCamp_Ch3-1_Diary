@@ -224,22 +224,22 @@ public class JdbcTodoRepository implements TodosRepository{
         }
     }
 
-    @Override
+    @Override // 대충코드
     public void updateTodo(Long id, String todo) {
 
     }
 
-    @Override
+    @Override // 대충코드
     public void updateWriter(Long id, String writer) {
 
     }
 
-    @Override
+    @Override // 대충코드
     public boolean verifyPassword(Long id, String password) {
         return false;
     }
 
-    @Override
+    @Override // 대충코드
     public void deleteSchedule(Long id) {
 
     }
