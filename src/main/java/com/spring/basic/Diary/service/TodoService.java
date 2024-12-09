@@ -30,9 +30,8 @@ public class TodoService {
      * @param schedule 전달 받을 schedule 객체
      * @return 일정 생성 후 일정 내용 반환
      */
-    public String createSchedule(RequestCreateDto schedule) {
-        todosRepository.save(schedule);
-        return schedule.getTodo();
+    public Long createSchedule(RequestCreateDto schedule) {
+        return todosRepository.save(schedule);
     }
 
 
