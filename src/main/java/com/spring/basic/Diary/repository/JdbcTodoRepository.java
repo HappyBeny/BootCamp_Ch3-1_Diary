@@ -1,6 +1,7 @@
 package com.spring.basic.Diary.repository;
 
-import com.spring.basic.Diary.dto.Schedule;
+import com.spring.basic.Diary.dto.ScheduleDto;
+import com.spring.basic.Diary.entity.ScheduleEntity;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import javax.sql.DataSource;
@@ -20,7 +21,7 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public Schedule save(Schedule schedule) {
+    public ScheduleDto save(ScheduleDto schedule) {
         String sql = "insert into schedule (todo, writer, password) values (?, ?, ?)";
 
         Connection conn = null;
@@ -52,7 +53,7 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public Optional<Schedule> findById(Long id) {
+    public Optional<ScheduleEntity> findById(Long id) {
         String sql = "select * from schedule where id = ?";
 
         Connection conn = null;
@@ -67,7 +68,7 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                Schedule schedule = new Schedule();
+                ScheduleEntity schedule = new ScheduleEntity();
                 schedule.setId(rs.getLong("id"));
                 schedule.setTodo(rs.getString("todo"));
                 schedule.setWriter(rs.getString("writer"));
@@ -85,9 +86,9 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> findByWriter(String writer) {
+    public List<ScheduleEntity> findByWriter(String writer) {
         String sql = "select * from schedule where writer = ?";
-        List<Schedule> schedules = new ArrayList<>();
+        List<ScheduleEntity> schedules = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -101,7 +102,7 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                    Schedule schedule = new Schedule();
+                ScheduleEntity schedule = new ScheduleEntity();
                     schedule.setId(rs.getLong("id"));
                     schedule.setTodo(rs.getString("todo"));
                     schedule.setWriter(rs.getString("writer"));
@@ -120,9 +121,9 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> findByCreatedDate(LocalDate date) {
+    public List<ScheduleEntity> findByCreatedDate(LocalDate date) {
         String sql = "select * from schedule where created_time >= ? and created_time < ?";
-        List<Schedule> schedules = new ArrayList<>();
+        List<ScheduleEntity> schedules = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -137,7 +138,7 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Schedule schedule = new Schedule();
+                ScheduleEntity schedule = new ScheduleEntity();
                 schedule.setId(rs.getLong("id"));
                 schedule.setTodo(rs.getString("todo"));
                 schedule.setWriter(rs.getString("writer"));
@@ -156,9 +157,9 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> findByUpdatedDate(LocalDate date) {
+    public List<ScheduleEntity> findByUpdatedDate(LocalDate date) {
         String sql = "select * from schedule where updated_time >= ? and updated_time < ?";
-        List<Schedule> schedules = new ArrayList<>();
+        List<ScheduleEntity> schedules = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -173,7 +174,7 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Schedule schedule = new Schedule();
+                ScheduleEntity schedule = new ScheduleEntity();
                 schedule.setId(rs.getLong("id"));
                 schedule.setTodo(rs.getString("todo"));
                 schedule.setWriter(rs.getString("writer"));
@@ -192,9 +193,9 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public List<Schedule> findAll() {
+    public List<ScheduleEntity> findAll() {
         String sql = "select * from schedule";
-        List<Schedule> schedules = new ArrayList<>();
+        List<ScheduleEntity> schedules = new ArrayList<>();
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -207,7 +208,7 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Schedule schedule = new Schedule();
+                ScheduleEntity schedule = new ScheduleEntity();
                 schedule.setId(rs.getLong("id"));
                 schedule.setTodo(rs.getString("todo"));
                 schedule.setWriter(rs.getString("writer"));

@@ -2,7 +2,6 @@ package com.spring.basic.Diary;
 
 import com.spring.basic.Diary.repository.JdbcTemplateTodoRepository;
 import com.spring.basic.Diary.repository.JdbcTodoRepository;
-import com.spring.basic.Diary.repository.MemoryTodoRepository;
 import com.spring.basic.Diary.repository.TodosRepository;
 import com.spring.basic.Diary.service.TodoService;
 import org.springframework.context.annotation.Bean;
