@@ -18,6 +18,6 @@ public interface TodosRepository {
     List<ScheduleEntity> findAll();
     void updateTodo(Long id, String todo);
     void updateWriter(Long id, String writer);
-    void deleteSchedule(Long id, String password);
+    void deleteSchedule(Long id);
     boolean verifyPassword(Long id, String password);
 }

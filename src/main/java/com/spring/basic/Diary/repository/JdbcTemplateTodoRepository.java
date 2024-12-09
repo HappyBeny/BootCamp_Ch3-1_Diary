@@ -71,8 +71,9 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void deleteSchedule(Long id, String password) {
-
+    public void deleteSchedule(Long id) {
+        String sql = "DELETE FROM schedules WHERE id = ?";
+        jdbcTemplate.update(sql, id);
     }
 
     @Override

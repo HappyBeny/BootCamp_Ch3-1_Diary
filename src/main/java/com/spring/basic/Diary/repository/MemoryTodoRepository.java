@@ -73,7 +73,7 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void deleteSchedule(Long id, String password) {
+    public void deleteSchedule(Long id) {
 
     }
 
