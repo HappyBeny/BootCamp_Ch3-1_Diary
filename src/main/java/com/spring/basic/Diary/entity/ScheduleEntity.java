@@ -1,4 +1,4 @@
-package com.spring.basic.Diary.dto;
+package com.spring.basic.Diary.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,27 +6,25 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
 @Getter
 @Setter
-public class Schedule {
+public class ScheduleEntity {
 
     private Long id;
     private String todo;
     private String writer;
-//    private final String password;
-//    private final LocalDateTime createdTime;
     private String password; // 순수jdbc용
     private LocalDateTime createdTime; // 순수 jdbc용
     private LocalDateTime updatedTime;
 
-    public Schedule () {}
+    public ScheduleEntity() {}
 
-    public Schedule(String todo, String writer, String password) {
+    public ScheduleEntity(Long id, String todo, String writer, String password, LocalDateTime createdTime, LocalDateTime updatedTime) {
+        this.id = id;
         this.todo = todo;
         this.writer = writer;
         this.password = password;
-        this.createdTime = LocalDateTime.now();
-        this.updatedTime = LocalDateTime.now();
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
     }
 }
