@@ -225,12 +225,12 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void updateTodo(String todo) {
+    public void updateTodo(Long id, String todo) {
 
     }
 
     @Override
-    public void updateWriter(String writer) {
+    public void updateWriter(Long id, String writer) {
 
     }
 
