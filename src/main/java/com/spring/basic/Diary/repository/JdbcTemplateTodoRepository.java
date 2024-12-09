@@ -65,7 +65,6 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
             schedule.setId(rs.getLong("id"));
             schedule.setTodo(rs.getString("todo"));
             schedule.setWriter(rs.getString("writer"));
-            schedule.setPassword(rs.getString("password"));
             schedule.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
             schedule.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
             return schedule;
