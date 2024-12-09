@@ -1,6 +1,6 @@
 package com.spring.basic.Diary.repository;
 
-import com.spring.basic.Diary.dto.CreateScheduleDto;
+import com.spring.basic.Diary.dto.RequestCreateDto;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 
 import java.time.LocalDate;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface TodosRepository {
 
-    CreateScheduleDto save(CreateScheduleDto schedule);
+    RequestCreateDto save(RequestCreateDto schedule);
     Optional<ScheduleEntity> findById(Long id);
     List<ScheduleEntity> findByWriter(String writer);
     List<ScheduleEntity> findByCreatedDate(LocalDate date);

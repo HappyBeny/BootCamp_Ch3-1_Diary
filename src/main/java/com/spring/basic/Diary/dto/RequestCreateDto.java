@@ -7,11 +7,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CreateScheduleDto {
+public class RequestCreateDto {
 
     private String todo;
     private String writer;
     private String password;
 
-    public CreateScheduleDto() {}
+    public RequestCreateDto() {}
 }

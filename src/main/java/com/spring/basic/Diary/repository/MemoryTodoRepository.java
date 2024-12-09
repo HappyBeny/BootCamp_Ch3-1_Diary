@@ -1,6 +1,6 @@
 package com.spring.basic.Diary.repository;
 
-import com.spring.basic.Diary.dto.CreateScheduleDto;
+import com.spring.basic.Diary.dto.RequestCreateDto;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +18,7 @@ public class MemoryTodoRepository implements TodosRepository{
 
     //기
     @Override
-    public CreateScheduleDto save(CreateScheduleDto scheduleDto) {
+    public RequestCreateDto save(RequestCreateDto scheduleDto) {
         ScheduleEntity scheduleEntity = new ScheduleEntity();
         scheduleEntity.setId(++sequence);
         scheduleEntity.setTodo(scheduleDto.getTodo());

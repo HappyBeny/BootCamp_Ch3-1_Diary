@@ -1,7 +1,7 @@
 package com.spring.basic.Diary.controller;
 
 
-import com.spring.basic.Diary.dto.CreateScheduleDto;
+import com.spring.basic.Diary.dto.RequestCreateDto;
 import com.spring.basic.Diary.dto.ResponseScheduleDto;
 import com.spring.basic.Diary.dto.ResponseUpdatedDto;
 import com.spring.basic.Diary.dto.UpdateScheduleDto;
@@ -30,7 +30,7 @@ public class TodoController {
 
     // 기
     @PostMapping("/schedules/new")
-    public String create(@RequestBody CreateScheduleDto schedule) {
+    public String create(@RequestBody RequestCreateDto schedule) {
         System.out.println("schedule: " + schedule.getTodo());
 
         todoService.createSchedule(schedule);
