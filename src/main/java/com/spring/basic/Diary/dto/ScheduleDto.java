@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @Setter
 public class ScheduleDto {
 
-    private Long id;
     private String todo;
     private String writer;
     private String password;
