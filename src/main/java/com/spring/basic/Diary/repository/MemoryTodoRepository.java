@@ -12,12 +12,11 @@ import java.util.stream.Collectors;
 @Repository
 public class MemoryTodoRepository implements TodosRepository{
     // 속
-
     private Map<Long, ScheduleEntity> schedules = new HashMap<>();
+
     private long sequence = 0L;
 
     //기
-
     @Override
     public CreateScheduleDto save(CreateScheduleDto scheduleDto) {
         ScheduleEntity scheduleEntity = new ScheduleEntity();
@@ -30,13 +29,13 @@ public class MemoryTodoRepository implements TodosRepository{
         schedules.put(scheduleEntity.getId(), scheduleEntity);
         return scheduleDto;
     }
+
     @Override
     public List<ScheduleEntity> findByWriter(String writer) {
         return schedules.values().stream()
                 .filter(schedule -> schedule.getWriter().equals(writer))
                 .collect(Collectors.toList());
     }
-
     @Override
     public List<ScheduleEntity> findByCreatedDate(LocalDate date) {
         return schedules.values().stream()
@@ -61,6 +60,16 @@ public class MemoryTodoRepository implements TodosRepository{
         return schedules.values().stream()
                 .filter(schedule -> schedule.getId().equals(id))
                 .findAny();
+    }
+
+    @Override
+    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+
+    }
+
+    @Override
+    public void deleteSchedule(Long id, String password) {
+
     }
 
     public void clearAll(){

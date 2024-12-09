@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class JdbcTemplateTodoRepository implements TodosRepository{
-
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcTemplateTodoRepository(DataSource dataSource) {
@@ -57,6 +56,16 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     @Override
     public List<ScheduleEntity> findAll() {
         return jdbcTemplate.query("select * from schedules", scheduleRowMapper());
+    }
+
+    @Override
+    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+
+    }
+
+    @Override
+    public void deleteSchedule(Long id, String password) {
+
     }
 
     private RowMapper<ScheduleEntity> scheduleRowMapper() {

@@ -225,6 +225,16 @@ public class JdbcTodoRepository implements TodosRepository{
         }
     }
 
+    @Override
+    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+
+    }
+
+    @Override
+    public void deleteSchedule(Long id, String password) {
+
+    }
+
     private Connection getConnection() {
         return DataSourceUtils.getConnection(dataSource);
     }
