@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @AllArgsConstructor
 @Getter
 @Setter
-public class ScheduleDto {
+public class CreateScheduleDto {
 
     private String todo;
     private String writer;
     private String password;
 
-    public ScheduleDto() {}
+    public CreateScheduleDto() {}
 }

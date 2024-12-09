@@ -1,6 +1,6 @@
 package com.spring.basic.Diary.service;
 
-import com.spring.basic.Diary.dto.ScheduleDto;
+import com.spring.basic.Diary.dto.CreateScheduleDto;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 import com.spring.basic.Diary.repository.TodosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class TodoService {
      * @param schedule 전달 받을 schedule 객체
      * @return 일정 생성 후 일정 내용 반환
      */
-    public String createSchedule(ScheduleDto schedule) {
+    public String createSchedule(CreateScheduleDto schedule) {
         todosRepository.save(schedule);
         return schedule.getTodo();
     }

@@ -1,6 +1,6 @@
 package com.spring.basic.Diary.repository;
 
-import com.spring.basic.Diary.dto.ScheduleDto;
+import com.spring.basic.Diary.dto.CreateScheduleDto;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,7 +20,7 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     }
 
     @Override
-    public ScheduleDto save(ScheduleDto schedule) {
+    public CreateScheduleDto save(CreateScheduleDto schedule) {
         String sql = "INSERT INTO schedules (todo, writer, password) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, schedule.getTodo(), schedule.getWriter(), schedule.getPassword());
         return schedule;
