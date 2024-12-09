@@ -35,6 +35,7 @@ public class TodoService {
         return schedule.getTodo();
     }
 
+
     /**
      * 일정 조회 기능
      * @param writer 작성자
@@ -55,6 +56,7 @@ public class TodoService {
         }
     }
 
+
     /**
      * id로 조회하기(단건 일정 조회)
      * @param id 식별용 고유 id 입력
@@ -64,6 +66,15 @@ public class TodoService {
         return todosRepository.findById(id);
     }
 
+
+    /**
+     * 일정 수정 메서드(할일, 작성자만 수정 가능)
+     * @param id
+     * @param todo
+     * @param writer
+     * @param password
+     * @return 참/거짓으로 반환해서 Controller단에서 상태에 맞는 메세지를 담을 수 있게 한다.
+     */
     public boolean updateSchedule(Long id, String todo, String writer, String password) {
         if (!todosRepository.verifyPassword(id, password)) {
             return false;
@@ -78,5 +89,4 @@ public class TodoService {
         }
         return true;
     }
-
 }
