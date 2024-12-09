@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Getter
 @Setter
 public class ScheduleEntity {
@@ -18,13 +19,4 @@ public class ScheduleEntity {
     private LocalDateTime updatedTime;
 
     public ScheduleEntity() {}
-
-    public ScheduleEntity(Long id, String todo, String writer, String password, LocalDateTime createdTime, LocalDateTime updatedTime) {
-        this.id = id;
-        this.todo = todo;
-        this.writer = writer;
-        this.password = password;
-        this.createdTime = createdTime;
-        this.updatedTime = updatedTime;
-    }
 }
