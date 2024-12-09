@@ -40,7 +40,6 @@ public class JdbcTodoRepository implements TodosRepository{
             rs = pstmt.getGeneratedKeys();
 
             if (rs.next()) {
-                schedule.setId(rs.getLong(1));
             } else {
                 throw new SQLException("id 조회 실패");
             }
