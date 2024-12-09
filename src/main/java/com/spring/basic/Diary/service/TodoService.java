@@ -64,13 +64,9 @@ public class TodoService {
         return todosRepository.findById(id);
     }
 
-    public void updateSchedule(Long id, String todo, String writer, String password) {
+    public boolean updateSchedule(Long id, String todo, String writer, String password) {
         if (!todosRepository.verifyPassword(id, password)) {
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
-        }
-
-        if (writer == null && todo == null) {
-            throw new IllegalStateException("적어도 한 가지 값을 입력해주세요");
+            return false;
         }
 
         if (todo != null) {
@@ -80,6 +76,7 @@ public class TodoService {
         if (writer != null) {
             todosRepository.updateWriter(id,writer);
         }
+        return true;
     }
 
 }
