@@ -5,6 +5,7 @@ import com.spring.basic.Diary.dto.*;
 import com.spring.basic.Diary.entity.ScheduleEntity;
 import com.spring.basic.Diary.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -27,12 +28,9 @@ public class TodoController {
 
     // 기
     @PostMapping("/schedules/new")
-    public String create(@RequestBody RequestCreateDto schedule) {
-        System.out.println("schedule: " + schedule.getTodo());
-
-        todoService.createSchedule(schedule);
-
-        return "redirect:/schedules";
+    public ResponseEntity<ResponseUpdatedDto> create(@RequestBody RequestCreateDto schedule) {
+        Long id = todoService.createSchedule(schedule);
+        return ResponseEntity.ok(new ResponseUpdatedDto("Success", "일정이 생성되었습니다."));
     }
 
     @GetMapping("/schedules")
