@@ -59,8 +59,23 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+    public void updateTodo(Long id, String todo) {
+        String sql = "UPDATE schedules SET todo = ? WHERE id = ?";
+        jdbcTemplate.update(sql, todo, id);
+    }
 
+    @Override
+    public void updateWriter(Long id, String writer) {
+        String sql = "UPDATE schedules SET writer = ? WHERE id = ?";
+        jdbcTemplate.update(sql, writer, id);
+    }
+
+    @Override
+    public boolean verifyPassword(Long id, String password) {
+        int count = jdbcTemplate.queryForObject(
+                "SELECT count(*) from schedules where id = ? AND password = ?",
+                Integer.class, id, password);
+        return count > 0;
     }
 
     @Override
