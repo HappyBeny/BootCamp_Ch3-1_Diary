@@ -19,10 +19,10 @@ public class JdbcTemplateTodoRepository implements TodosRepository{
     }
 
     @Override
-    public RequestCreateDto save(RequestCreateDto schedule) {
+    public Long save(RequestCreateDto schedule) {
         String sql = "INSERT INTO schedules (todo, writer, password) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, schedule.getTodo(), schedule.getWriter(), schedule.getPassword());
-        return schedule;
+        return jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Long.class);
     }
 
     @Override
