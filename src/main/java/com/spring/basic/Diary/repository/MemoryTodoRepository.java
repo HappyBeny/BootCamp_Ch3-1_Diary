@@ -68,7 +68,7 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void UpdateWriter(String writer) {
+    public void updateWriter(String writer) {
 
     }
 
