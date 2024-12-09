@@ -63,13 +63,23 @@ public class MemoryTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+    public void updateTodo(String todo) {
+
+    }
+
+    @Override
+    public void UpdateWriter(String writer) {
 
     }
 
     @Override
     public void deleteSchedule(Long id, String password) {
 
+    }
+
+    @Override
+    public boolean verifyPassword(Long id, String password) {
+        return false;
     }
 
     public void clearAll(){

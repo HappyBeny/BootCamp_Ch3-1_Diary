@@ -13,7 +13,6 @@ import java.util.Optional;
 
 
 public class JdbcTodoRepository implements TodosRepository{
-
     private final DataSource dataSource;
 
     public JdbcTodoRepository(DataSource dataSource) {
@@ -226,8 +225,18 @@ public class JdbcTodoRepository implements TodosRepository{
     }
 
     @Override
-    public void UpdateSchedule(Long id, String todo, String writer, String password) {
+    public void updateTodo(String todo) {
 
+    }
+
+    @Override
+    public void updateWriter(String writer) {
+
+    }
+
+    @Override
+    public boolean verifyPassword(Long id, String password) {
+        return false;
     }
 
     @Override

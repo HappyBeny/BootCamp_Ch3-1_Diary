@@ -16,6 +16,8 @@ public interface TodosRepository {
     List<ScheduleEntity> findByCreatedDate(LocalDate date);
     List<ScheduleEntity> findByUpdatedDate(LocalDate date);
     List<ScheduleEntity> findAll();
-    void UpdateSchedule(Long id, String todo, String writer, String password);
+    void updateTodo(String todo);
+    void updateWriter(String writer);
     void deleteSchedule(Long id, String password);
+    boolean verifyPassword(Long id, String password);
 }
