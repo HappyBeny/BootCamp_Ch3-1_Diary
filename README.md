@@ -138,7 +138,6 @@ TodosRepository: 일정 데이터 접근을 위한 인터페이스.
 
 </details>
 
----
 
 **<details><summary>Configuration</summary>**
 
