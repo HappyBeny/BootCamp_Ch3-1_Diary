@@ -63,13 +63,36 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 </details>
 
 
-### DTO
-RequestCreateDto: 일정 생성 요청 시 사용.
-UpdateScheduleDto: 일정 수정 요청 시 사용.
-RequestDeleteDto: 일정 삭제 요청 시 사용.
-ResponseScheduleDto: 일정 조회 응답용.
-ResponseUpdatedDto: 작업 성공/실패 응답용.
-<br>
+**<details><summary>DTO</summary>**
+
+- **RequestCreateDto**  
+  - `todo`: 할 일 (String)  
+  - `writer`: 작성자 (String)  
+  - `password`: 비밀번호 (String)  
+
+- **UpdateScheduleDto**  
+  - `id`: 일정 ID (Long)  
+  - `todo`: 할 일 (String)  
+  - `writer`: 작성자 (String)  
+  - `password`: 비밀번호 (String)  
+
+- **RequestDeleteDto**  
+  - `id`: 일정 ID (Long)  
+  - `password`: 비밀번호 (String)  
+
+- **ResponseScheduleDto**  
+  - `id`: 일정 ID (Long)  
+  - `todo`: 할 일 (String)  
+  - `writer`: 작성자 (String)  
+  - `createdTime`: 생성 시간 (LocalDateTime)  
+  - `updatedTime`: 수정 시간 (LocalDateTime)  
+
+- **ResponseUpdatedDto**  
+  - `status`: 상태 (String)  
+  - `message`: 메시지 (String)  
+
+</details>
+
 
 ### Service
 TodoService: 비즈니스 로직 처리.
