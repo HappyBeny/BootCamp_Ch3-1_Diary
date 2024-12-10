@@ -195,7 +195,14 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 <br><br>
 
 ## 6️⃣기술 스택
-
+- 프레임워크 : Spring Boot
+- 언어 : Java
+- 빌드 도구 : Gradle
+- 데이터베이스 : MySQL (JDBC, JdbcTemplate 사용)
+- 라이브러리 : Lombok
+- 개발 도구 : IntelliJ IDEA
+- 버전 관리 : Git
+- 테스트 : JUnit
 <br><br>
 
 
