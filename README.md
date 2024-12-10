@@ -28,11 +28,7 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 <br><br>
 
 ## 4️⃣ 구현한 기능
-<details><summary>### 일정 생성</summary>
 
-- 경로: /todo/schedules/new (POST)
-- 설명: 새로운 일정을 생성합니다.
-</details>
 
 ### 일정 생성
 
@@ -59,8 +55,12 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 <br><br>
 
 ## 5️⃣ 클래스/메서드 설명
+
 ### Controller
-TodoController: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+<details><summary></summary>
+
+- TodoController: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+</details>
 
 
 ### DTO
