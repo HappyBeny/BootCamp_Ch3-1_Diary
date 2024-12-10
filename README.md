@@ -34,22 +34,17 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 - 경로: /todo/schedules/new (POST)
 - 설명: 새로운 일정을 생성합니다.
 
-<br>
-
 ### 일정 목록 조회
 - 경로: /todo/schedules (GET)
 - 설명: 작성자나 날짜 조건에 맞는 일정을 조회합니다.
-<br>
 
 ### 특정 일정 조회
 - 경로: /todo/schedules/{id} (GET)
 - 설명: 특정 ID의 일정을 조회합니다.
-<br>
 
 ### 일정 수정
 - 경로: /todo/schedules/update (PATCH)
 - 설명: 할 일과 작성자를 수정합니다.
-<br>
 
 ### 일정 삭제
 - 경로: /todo/schedules/delete (DELETE)
