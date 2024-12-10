@@ -23,7 +23,7 @@
 https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 <br><br>
 
-## 3️⃣ ERD
+## 3️⃣ ERD(Entity-Relationship Diagram)
 ![image](https://github.com/user-attachments/assets/138bf6a8-5cf4-4bec-be34-be712c3b14b0)
 <br><br>
 
