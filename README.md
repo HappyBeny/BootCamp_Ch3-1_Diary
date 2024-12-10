@@ -65,29 +65,29 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 **<details><summary>DTO</summary>**
 
-- **RequestCreateDto**  
+- **RequestCreateDto** : 일정 생성 요청 시 사용.
   - `todo`: 할 일 (String)  
   - `writer`: 작성자 (String)  
   - `password`: 비밀번호 (String)  
 
-- **UpdateScheduleDto**  
+- **UpdateScheduleDto** : 일정 수정 요청 시 사용.
   - `id`: 일정 ID (Long)  
   - `todo`: 할 일 (String)  
   - `writer`: 작성자 (String)  
   - `password`: 비밀번호 (String)  
 
-- **RequestDeleteDto**  
+- **RequestDeleteDto** : 일정 삭제 요청 시 사용.
   - `id`: 일정 ID (Long)  
   - `password`: 비밀번호 (String)  
 
-- **ResponseScheduleDto**  
+- **ResponseScheduleDto** : 일정 조회 응답용.
   - `id`: 일정 ID (Long)  
   - `todo`: 할 일 (String)  
   - `writer`: 작성자 (String)  
   - `createdTime`: 생성 시간 (LocalDateTime)  
   - `updatedTime`: 수정 시간 (LocalDateTime)  
 
-- **ResponseUpdatedDto**  
+- **ResponseUpdatedDto** : 작업 성공/실패 응답용.
   - `status`: 상태 (String)  
   - `message`: 메시지 (String)  
 
