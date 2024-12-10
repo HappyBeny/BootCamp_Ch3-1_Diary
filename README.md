@@ -56,10 +56,10 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 ## 5️⃣ 클래스/메서드 설명
 
-### Controller
-<details><summary></summary>
+**<details><summary>### Controller</summary>**
 
-- TodoController: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+- **TodoController**: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+
 </details>
 
 
