@@ -58,12 +58,17 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 ## 5️⃣ 클래스/메서드 설명
 
-**<details><summary> Controller</summary>**
+**<details><summary>Entity</summary>**
 
-- **TodoController**: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+- **ScheduleEntity**: 일정의 데이터를 표현하는 엔티티 클래스  
+  - **`id`**: 일정 ID (Long)  
+  - **`todo`**: 할 일 (String)  
+  - **`writer`**: 작성자 (String)  
+  - **`password`**: 비밀번호 (String)  
+  - **`createdTime`**: 생성 시간 (LocalDateTime)  
+  - **`updatedTime`**: 수정 시간 (LocalDateTime)  
 
 </details>
-
 
 **<details><summary>DTO</summary>**
 
@@ -94,33 +99,6 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
   - `message`: 메시지 (String)  
 
 </details>
-
-
-**<details><summary>Service</summary>**
-
-- **TodoService** : 비즈니스 로직 처리.
-  - **`createSchedule(RequestCreateDto schedule)`**  
-    - 설명: 새로운 일정을 저장합니다.  
-    - 반환값: 생성된 일정의 ID (Long)  
-
-  - **`getSchedules(String writer, LocalDate date)`**  
-    - 설명: 작성자나 수정일 조건에 맞는 일정을 조회합니다.  
-    - 반환값: 조건에 맞는 일정 목록 (List<ScheduleEntity>)  
-
-  - **`getScheduleWithId(Long id)`**  
-    - 설명: 특정 ID의 일정을 조회합니다.  
-    - 반환값: 조회된 일정 (Optional<ScheduleEntity>)  
-
-  - **`updateSchedule(Long id, String todo, String writer, String password)`**  
-    - 설명: 일정의 할 일과 작성자를 수정합니다.  
-    - 반환값: 수정 성공 여부 (boolean)  
-
-  - **`deleteSchedule(Long id, String password)`**  
-    - 설명: 비밀번호 확인 후 일정을 삭제합니다.  
-    - 반환값: 삭제 성공 여부 (boolean)  
-
-</details>
-
 
 **<details><summary>Repository</summary>**
 
@@ -170,20 +148,36 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 </details>
 
+**<details><summary>Service</summary>**
 
+- **TodoService** : 비즈니스 로직 처리.
+  - **`createSchedule(RequestCreateDto schedule)`**  
+    - 설명: 새로운 일정을 저장합니다.  
+    - 반환값: 생성된 일정의 ID (Long)  
 
-**<details><summary>Entity</summary>**
+  - **`getSchedules(String writer, LocalDate date)`**  
+    - 설명: 작성자나 수정일 조건에 맞는 일정을 조회합니다.  
+    - 반환값: 조건에 맞는 일정 목록 (List<ScheduleEntity>)  
 
-- **ScheduleEntity**: 일정의 데이터를 표현하는 엔티티 클래스  
-  - **`id`**: 일정 ID (Long)  
-  - **`todo`**: 할 일 (String)  
-  - **`writer`**: 작성자 (String)  
-  - **`password`**: 비밀번호 (String)  
-  - **`createdTime`**: 생성 시간 (LocalDateTime)  
-  - **`updatedTime`**: 수정 시간 (LocalDateTime)  
+  - **`getScheduleWithId(Long id)`**  
+    - 설명: 특정 ID의 일정을 조회합니다.  
+    - 반환값: 조회된 일정 (Optional<ScheduleEntity>)  
+
+  - **`updateSchedule(Long id, String todo, String writer, String password)`**  
+    - 설명: 일정의 할 일과 작성자를 수정합니다.  
+    - 반환값: 수정 성공 여부 (boolean)  
+
+  - **`deleteSchedule(Long id, String password)`**  
+    - 설명: 비밀번호 확인 후 일정을 삭제합니다.  
+    - 반환값: 삭제 성공 여부 (boolean)  
 
 </details>
 
+**<details><summary> Controller</summary>**
+
+- **TodoController**: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
+
+</details>
 
 **<details><summary>Configuration</summary>**
 
