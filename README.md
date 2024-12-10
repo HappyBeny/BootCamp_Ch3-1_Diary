@@ -96,7 +96,7 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 **<details><summary>Service</summary>**
 
-- **TodoService**  
+- **TodoService** : 비즈니스 로직 처리.
   - **`createSchedule(RequestCreateDto schedule)`**  
     - 설명: 새로운 일정을 저장합니다.  
     - 반환값: 생성된 일정의 ID (Long)  
