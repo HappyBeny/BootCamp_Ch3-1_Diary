@@ -31,6 +31,8 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 
 
 ### 일정 생성
+- 경로: /todo/schedules/new (POST)
+- 설명: 새로운 일정을 생성합니다.
 
 <br>
 
