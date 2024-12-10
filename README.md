@@ -54,7 +54,33 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 <br><br>
 
 ## 5️⃣ 클래스/메서드 설명
+### Controller
+TodoController: RESTful API를 통해 일정을 생성, 조회, 수정, 삭제합니다.
 
+
+### DTO
+RequestCreateDto: 일정 생성 요청 시 사용.
+UpdateScheduleDto: 일정 수정 요청 시 사용.
+RequestDeleteDto: 일정 삭제 요청 시 사용.
+ResponseScheduleDto: 일정 조회 응답용.
+ResponseUpdatedDto: 작업 성공/실패 응답용.
+<br>
+
+### Service
+TodoService: 비즈니스 로직 처리.
+<br>
+
+### Repository
+TodosRepository: 일정 데이터 접근을 위한 인터페이스.
+구현체: JdbcTemplateTodoRepository, JdbcTodoRepository, MemoryTodoRepository.
+<br>
+
+### Entity
+ScheduleEntity: 일정 엔티티.
+<br>
+
+### Configuration
+SpringConfig: 빈 설정 클래스.
 <br><br>
 
 ## 6️⃣기술 스택
