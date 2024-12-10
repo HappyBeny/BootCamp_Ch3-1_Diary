@@ -94,9 +94,31 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 </details>
 
 
-### Service
-TodoService: 비즈니스 로직 처리.
-<br>
+**<details><summary>Service</summary>**
+
+- **TodoService**  
+  - **`createSchedule(RequestCreateDto schedule)`**  
+    - 설명: 새로운 일정을 저장합니다.  
+    - 반환값: 생성된 일정의 ID (Long)  
+
+  - **`getSchedules(String writer, LocalDate date)`**  
+    - 설명: 작성자나 수정일 조건에 맞는 일정을 조회합니다.  
+    - 반환값: 조건에 맞는 일정 목록 (List<ScheduleEntity>)  
+
+  - **`getScheduleWithId(Long id)`**  
+    - 설명: 특정 ID의 일정을 조회합니다.  
+    - 반환값: 조회된 일정 (Optional<ScheduleEntity>)  
+
+  - **`updateSchedule(Long id, String todo, String writer, String password)`**  
+    - 설명: 일정의 할 일과 작성자를 수정합니다.  
+    - 반환값: 수정 성공 여부 (boolean)  
+
+  - **`deleteSchedule(Long id, String password)`**  
+    - 설명: 비밀번호 확인 후 일정을 삭제합니다.  
+    - 반환값: 삭제 성공 여부 (boolean)  
+
+</details>
+
 
 ### Repository
 TodosRepository: 일정 데이터 접근을 위한 인터페이스.
