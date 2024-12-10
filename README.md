@@ -122,10 +122,54 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
 </details>
 
 
-### Repository
-TodosRepository: 일정 데이터 접근을 위한 인터페이스.
-구현체: JdbcTemplateTodoRepository, JdbcTodoRepository, MemoryTodoRepository.
-<br>
+**<details><summary>Repository</summary>**
+
+- **TodosRepository**: 일정 데이터 접근을 위한 인터페이스  
+  - **기능**: 일정 생성, 조회, 수정, 삭제 관련 메서드 정의  
+
+- **JdbcTemplateTodoRepository**: `JdbcTemplate`을 사용하여 일정 데이터를 관리하는 구현체  
+  - **`save(RequestCreateDto schedule)`**  
+    - 설명: 새로운 일정을 저장합니다.  
+    - 반환값: 생성된 일정의 ID (Long)  
+
+  - **`findById(Long id)`**  
+    - 설명: ID로 일정 조회  
+    - 반환값: 조회된 일정 (Optional<ScheduleEntity>)  
+
+  - **`findByWriter(String writer)`**  
+    - 설명: 작성자로 일정 조회  
+    - 반환값: 일정 목록 (List<ScheduleEntity>)  
+
+  - **`findByCreatedDate(LocalDate date)`**  
+    - 설명: 생성 날짜로 일정 조회  
+    - 반환값: 일정 목록 (List<ScheduleEntity>)  
+
+  - **`findByUpdatedDate(LocalDate date)`**  
+    - 설명: 수정 날짜로 일정 조회  
+    - 반환값: 일정 목록 (List<ScheduleEntity>)  
+
+  - **`findAll()`**  
+    - 설명: 모든 일정 조회  
+    - 반환값: 일정 목록 (List<ScheduleEntity>)  
+
+  - **`updateTodo(Long id, String todo)`**  
+    - 설명: 할 일 내용 수정  
+
+  - **`updateWriter(Long id, String writer)`**  
+    - 설명: 작성자 수정  
+
+  - **`deleteSchedule(Long id)`**  
+    - 설명: 일정 삭제  
+
+  - **`verifyPassword(Long id, String password)`**  
+    - 설명: 비밀번호 검증  
+    - 반환값: 검증 성공 여부 (boolean)  
+
+- **JdbcTodoRepository**: JDBC를 사용한 연습용 구현체  
+- **MemoryTodoRepository**: 메모리 기반의 연습용 구현체  
+
+</details>
+
 
 
 **<details><summary>Entity</summary>**
