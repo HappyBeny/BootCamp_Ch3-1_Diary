@@ -165,7 +165,7 @@ https://documenter.getpostman.com/view/40135026/2sAYBd8U3U
     - 설명: 비밀번호 검증  
     - 반환값: 검증 성공 여부 (boolean)  
 
-- **JdbcTodoRepository**: JDBC를 사용한 연습용 구현체  
+- **JdbcTodoRepository**: 순수 JDBC를 사용한 연습용 구현체  
 - **MemoryTodoRepository**: 메모리 기반의 연습용 구현체  
 
 </details>
