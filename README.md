@@ -125,12 +125,34 @@ TodosRepository: 일정 데이터 접근을 위한 인터페이스.
 구현체: JdbcTemplateTodoRepository, JdbcTodoRepository, MemoryTodoRepository.
 <br>
 
-### Entity
-ScheduleEntity: 일정 엔티티.
-<br>
 
-### Configuration
-SpringConfig: 빈 설정 클래스.
+**<details><summary>Entity</summary>**
+
+- **ScheduleEntity**: 일정의 데이터를 표현하는 엔티티 클래스  
+  - **`id`**: 일정 ID (Long)  
+  - **`todo`**: 할 일 (String)  
+  - **`writer`**: 작성자 (String)  
+  - **`password`**: 비밀번호 (String)  
+  - **`createdTime`**: 생성 시간 (LocalDateTime)  
+  - **`updatedTime`**: 수정 시간 (LocalDateTime)  
+
+</details>
+
+---
+
+**<details><summary>Configuration</summary>**
+
+- **SpringConfig**: 애플리케이션의 빈과 설정을 정의하는 클래스  
+  - **`todoService()`**: `TodoService` 빈을 생성합니다.  
+
+  - **`todosRepository()`**: `TodosRepository` 구현체를 설정합니다.  
+    - 예시 구현체:  
+      - `JdbcTemplateTodoRepository`  
+      - `JdbcTodoRepository`  
+      - `MemoryTodoRepository`  
+
+</details>
+
 <br><br>
 
 ## 6️⃣기술 스택
